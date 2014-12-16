@@ -14,6 +14,12 @@ class Comment extends AppModel
         2 => 'Disapprove',
         3 => 'Spam'
     );
+    public $constStatus = array(
+        'Pending' => 0,
+        'Approved' => 1,
+        'Disapprove' => 2,
+        'Spam' => 3
+    );
     
     public function getData($type)
     {

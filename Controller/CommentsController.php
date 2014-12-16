@@ -10,7 +10,7 @@ class CommentsController extends AppController
     public $name = 'Comments';
     public $helpers = array('Text', 'Time');
     private $model, $refId;
-
+	
     public function beforeFilter()
     {
         if (CakePlugin::loaded('GtwUsers')) {
@@ -30,6 +30,7 @@ class CommentsController extends AppController
         $this->paginate = $this->Comment->getData($type);
         $this->set('comments', $this->paginate('Comment'));
         $this->set('status', $this->Comment->status);
+        $this->set('constStatus', $this->Comment->constStatus);
     }
 
     public function delete($commentId)
@@ -106,8 +107,8 @@ class CommentsController extends AppController
         }
         if (!empty($this->refId)) {
             $conditions['Comment.ref_id'] = $this->refId;
-        }
-        $conditions['Comment.status'] = 1;
+        }        
+        $conditions['Comment.status'] = $this->Comment->constStatus['Approved'];
         $fields = array(
             'Comment.id',
             'Comment.user_id',

@@ -55,15 +55,15 @@
                             <td class="text-center actions">
                                 <?php 
                                     if($this->Session->read('Auth.User.role')=='admin'){
-                                        if($comment['Comment']['status']!=1){
+                                        if($comment['Comment']['status']!=$constStatus['Approved']){
                                             echo $this->Html->link(__('Approve'), array('action' => 'change_status','Approved', $comment['Comment']['id']));
                                             echo '&nbsp|&nbsp';
                                         }
-                                        if($comment['Comment']['status']!=2){
+                                        if($comment['Comment']['status']!=$constStatus['Disapprove']){
                                             echo $this->Html->link(__('Disapprove'), array('action' => 'change_status','Disapprove', $comment['Comment']['id']));
                                             echo '&nbsp|&nbsp';
                                         }
-                                        if($comment['Comment']['status']!=3){
+                                        if($comment['Comment']['status']!=$constStatus['Spam']){
                                             echo $this->Html->link(__('Mark as spam'), array('action' => 'change_status','Spam', $comment['Comment']['id']));
                                             echo '&nbsp|&nbsp';
                                         }
