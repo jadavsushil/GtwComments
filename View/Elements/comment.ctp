@@ -11,20 +11,20 @@ echo $this->GtwRequire->req($this->Html->url('/',true).'GtwComments/js/comment.j
                     &nbsp;
                 </a>
                 <div class="media-body">                  
-					<?php if($this->Session->check('Auth.User.id')){?>
-						<textarea name="data[Comment][comment]" class="textarea" rows="2" id="CommentComment" placeholder="<?php echo __('Add your comment')?>"></textarea>
-						<?php 
-							echo $this->Form->submit('Submit', array(
+                    <?php if($this->Session->check('Auth.User.id')){?>
+                        <textarea name="data[Comment][comment]" class="textarea" rows="2" id="CommentComment" placeholder="<?php echo __('Add your comment')?>"></textarea>
+                        <?php 
+                            echo $this->Form->submit('Submit', array(
                                                     'div' => false,
                                                     'class' => 'btn btn-primary postbutton'
-							)); 						
-						?>
-					<?php }else{?>	
-						<textarea name="data[Comment][comment]" class="textarea" rows="2" id="CommentComment" placeholder="<?php echo __('Please login to post your comment')?>" disabled></textarea>
-						<?php 
-							echo $this->Html->link('Submit','javascript:void(0);', array('class' => 'btn btn-primary postbutton')); 						
-						?>
-					<?php } ?>
+                            ));                         
+                        ?>
+                    <?php }else{?>    
+                        <textarea name="data[Comment][comment]" class="textarea" rows="2" id="CommentComment" placeholder="<?php echo __('Please login to post your comment')?>" disabled></textarea>
+                        <?php 
+                            echo $this->Html->link('Submit','javascript:void(0);', array('class' => 'btn btn-primary postbutton'));                         
+                        ?>
+                    <?php } ?>
                 </div>
             </div>            
         </div>
